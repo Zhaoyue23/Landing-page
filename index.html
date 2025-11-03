@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page Jatigede</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Google Fonts Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Konfigurasi Tailwind dengan font Montserrat -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="font-sans bg-white">
+  <!-- Navbar -->
+  <nav class="w-full fixed top-0 left-0 z-50 bg-white/80 backdrop-blur-sm">
+    <!-- tambahkan padding horizontal agar ada gap ke ujung -->
+    <div class="flex items-center h-16 px-4 md:px-8">
+      <!-- logo di kiri -->
+      <a href="index.html" class="text-blue-800 font-bold text-xl md:text-2xl">
+        JATIGEDE
+      </a>
+
+      <!-- spacer: dorong nav ke kanan -->
+      <div class="flex-1"></div>
+
+      <!-- desktop links di ujung kanan -->
+      <div id="nav-links" class="hidden md:flex md:items-center md:gap-x-8 font-bold text-blue-800">
+        <a href="index.html" class="text-base md:text-lg text-blue-600">Beranda</a>
+        <a href="tentang.html" class="text-base md:text-lg">Tentang</a>
+        <a href="fasilitas.html" class="text-base md:text-lg">Fasilitas</a>
+        <button class="text-base md:text-lg">Kontak</button>
+      </div>
+
+      <!-- toggle mobile tetap di ujung kanan -->
+      <button id="nav-toggle" class="md:hidden p-2 text-blue-800" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+      <div class="flex flex-col gap-3 font-semibold text-blue-800">
+        <a href="index.html" class="block py-2 text-blue-600">Beranda</a>
+        <a href="tentang.html" class="block py-2">Tentang</a>
+        <a href="fasilitas.html" class="block py-2">Fasilitas</a>
+        <a href="#" class="block py-2">Kontak</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- spacer untuk navbar fixed -->
+  <div class="h-16"></div>
+
+  <!-- Hero Section-->
+  <main class="min-h-screen">
+    <section class="bg-blue-100 px-6 md:px-32 py-12">
+      <div class="max-w-6xl mx-auto">
+        <div class="w-full min-h-[70vh] grid grid-cols-1 md:grid-cols-2 items-center gap-y-8 md:gap-x-8">
+          <div class="space-y-6">
+            <h1 class="text-black text-3xl md:text-5xl font-bold leading-tight">
+              Temukan Pesona <br class="hidden md:inline" />Jatigede, Surga <br class="hidden md:inline" />Air Biru di Jawa
+              <br class="hidden md:inline" />Barat
+            </h1>
+            <p class="text-black text-sm md:text-base text-justify">
+              Nikmati keindahan waduk terbesar, petualangan air, dan ketenangan alam yang tak tertandingi. Jatigede menawarkan
+              pengalaman wisata yang menyegarkan jiwa. Cocok untuk keluarga, petualang, dan pecinta fotografi.
+            </p>
+
+            <!-- tombol untuk desktop/tablet -->
+            <div class="hidden md:flex justify-start">
+              <a href="https://www.google.com/maps/search/?api=1&query=Waduk+Jatigede"
+                 target="_blank" rel="noopener noreferrer"
+                 class="bg-blue-900 w-full md:w-48 h-12 rounded-xl text-white text-lg md:text-xl font-bold hover:bg-blue-800 flex items-center justify-center">
+                Lihat Destinasi
+              </a>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 items-center justify-center">
+            <div class="pl-2 flex justify-center">
+              <img class="w-full max-w-[200px] md:max-w-[320px] h-auto object-cover rounded-lg" 
+                   src="src/img/Frame 12.png" alt=""/>
+            </div>
+            <div class="flex flex-col gap-3 items-center justify-center">
+              <img class="w-full max-w-[160px] md:max-w-[240px] h-auto object-cover rounded-lg" 
+                   src="src/img/Frame 13.png" alt=""/>
+              <img class="w-full max-w-[160px] md:max-w-[240px] h-auto object-cover rounded-lg" 
+                   src="src/img/Frame 14.png" alt=""/>
+            </div>
+          </div>
+
+          <!-- tombol khusus mobile -->
+          <div class="md:hidden flex justify-center mt-4">
+            <a href="https://www.google.com/maps/search/?api=1&query=Waduk+Jatigede"
+               target="_blank" rel="noopener noreferrer"
+               class="bg-blue-900 w-full max-w-xs h-12 rounded-xl text-white text-lg font-bold hover:bg-blue-800 flex items-center justify-center">
+              Lihat Destinasi
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Section Tentang-->
+    <section class="bg-blue-50 px-6 md:px-32 py-12">
+      <div class="max-w-6xl mx-auto">
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+          <div class="flex flex-col items-center md:items-start">
+            <img class="w-full max-w-[280px] md:max-w-md h-auto rounded-lg object-cover" src="src/img/Frame 31.png" alt=""/>
+          </div>
+
+          <div class="space-y-6">
+            <p class="text-black text-sm md:text-base text-justify">
+              Waduk Jatigede, waduk terbesar kedua di Indonesia, terletak di Kabupaten Sumedang, Jawa Barat. Pembangunannya
+              direncanakan sejak zaman Hindia Belanda, namun sempat tertunda. Pada 1990-an, proyek kembali dilanjutkan dengan
+              relokasi warga dari 28 desa sekitar. Konstruksi berlangsung 2007-2015 dan diresmikan pada 2015.
+            </p>
+
+            <!-- tombol untuk desktop/tablet -->
+            <div class="hidden md:flex justify-start md:justify-end">
+              <a href="tentang.html" class="bg-blue-900 w-full md:w-48 h-12 rounded-xl text-white text-lg font-bold hover:bg-blue-800 flex items-center justify-center">
+                Lihat Selengkapnya
+              </a>
+            </div>
+              
+              <!-- tombol khusus mobile -->
+              <div class="md:hidden flex justify-center w-full">
+                <a href="tentang.html" class="bg-blue-900 w-full max-w-xs h-12 rounded-xl text-white text-lg font-bold hover:bg-blue-800 flex items-center justify-center">
+                  Lihat Selengkapnya
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Secton Fasilitas-->
+    <section class="bg-blue-100 px-6 md:px-32 py-12">
+      <div class="max-w-6xl mx-auto">
+        <div class="w-full">
+          <h3 class="text-black text-2xl md:text-3xl font-bold text-center pt-4">Fasilitas Jatigede</h3>
+          <p class="text-black text-sm md:text-base italic text-center pt-2">
+            Nikmati berbagai aktivitas air dan darat yang cocok untuk semua usia.
+          </p>
+
+          <!-- responsive grid: mobile = 3 rows x 2 cols, md+ = 2 rows x 3 cols -->
+          <div class="mt-6">
+            <div class="grid grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-rows-2 gap-4">
+              <div class="overflow-hidden rounded-2xl shadow-lg">
+                <img class="w-full h-40 md:h-48 object-cover transition duration-300 ease-in-out hover:scale-110" 
+                     src="src/img/Frame 17.png" alt="Fasilitas 1" />
+              </div>
+              <div class="overflow-hidden rounded-2xl shadow-lg">
+                <img class="w-full h-40 md:h-48 object-cover transition duration-300 ease-in-out hover:scale-110" 
+                     src="src/img/Frame 21.png" alt="Fasilitas 2" />
+              </div>
+              <div class="overflow-hidden rounded-2xl shadow-lg">
+                <img class="w-full h-40 md:h-48 object-cover transition duration-300 ease-in-out hover:scale-110" 
+                     src="src/img/Frame 23.png" alt="Fasilitas 3" />
+              </div>
+              <div class="overflow-hidden rounded-2xl shadow-lg">
+                <img class="w-full h-40 md:h-48 object-cover transition duration-300 ease-in-out hover:scale-110" 
+                     src="src/img/Frame 24.png" alt="Fasilitas 4" />
+              </div>
+              <div class="overflow-hidden rounded-2xl shadow-lg">
+                <img class="w-full h-40 md:h-48 object-cover transition duration-300 ease-in-out hover:scale-110" 
+                     src="src/img/Frame 25.png" alt="Fasilitas 5" />
+              </div>
+              <div class="overflow-hidden rounded-2xl shadow-lg">
+                <img class="w-full h-40 md:h-48 object-cover transition duration-300 ease-in-out hover:scale-110" 
+                     src="src/img/Frame 28.png" alt="Fasilitas 6" />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-center pt-6 pb-8">
+            <a href="fasilitas.html" class="bg-blue-900 w-full md:w-auto px-6 h-12 rounded-xl text-white text-lg md:text-xl font-bold hover:bg-blue-800 flex items-center justify-center">
+              Lihat Semua Fasilitas
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full h-auto bg-blue-800 grid grid-cols-1 gap-y-4 items-center justify-center text-white py-8">
+    <p class="text-sm md:text-md text-center px-6">
+      Desa Jatigede, Kecamatan Darmaraja, Kabupaten Sumedang, Jawa Barat 45373
+      <br />Jam operasional (08.00-17.00 WIB)
+    </p>
+    <img class="justify-self-center w-48 h-auto" src="src/img/Frame 11.png" alt="" />
+    <p class="text-sm md:text-md text-center px-6">
+      © 2025 Landing Page Jatigede by Cipta Ayuningsih. Semua hak dilindungi.
+    </p>
+  </footer>
+
+  <!-- external JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Jatigede</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="font-sans bg-white">
+    <!-- Navbar -->
+    <nav class="w-full fixed top-0 left-0 z-50 bg-white/80 backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto flex items-center justify-between h-16 px-6 md:px-28">
+            <a href="index.html" class="text-blue-800 font-bold text-xl md:text-2xl">JATIGEDE</a>
+
+            <!-- Desktop links -->
+            <div id="nav-links" class="hidden md:flex md:items-center md:gap-x-8 font-bold text-blue-800">
+                <a href="index.html" class="text-base md:text-lg">Beranda</a>
+                <a href="tentang.html" class="text-base md:text-lg text-blue-600">Tentang</a>
+                <a href="fasilitas.html" class="text-base md:text-lg">Fasilitas</a>
+                <a href="#" class="text-base md:text-lg">Kontak</a>
+            </div>
+
+            <!-- Mobile toggle -->
+            <button id="nav-toggle" class="md:hidden p-2 text-blue-800" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden px-6 pb-4">
+            <div class="flex flex-col gap-3 font-semibold text-blue-800">
+                <a href="index.html" class="block py-2">Beranda</a>
+                <a href="tentang.html" class="block py-2 text-blue-600">Tentang</a>
+                <a href="fasilitas.html" class="block py-2">Fasilitas</a>
+                <a href="#" class="block py-2">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- spacer untuk navbar fixed -->
+    <div class="h-16"></div>
+
+    <main>
+        <section class="bg-blue-100 px-6 md:px-32 py-12">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">Tentang Waduk Jatigede</h1>
+
+                <!-- stacked layout: gambar di bawah judul, lalu paragraf-paragraf -->
+                <div class="space-y-6">
+                    <div class="w-full overflow-hidden rounded-2xl">
+                        <img src="src/img/Frame 31.png"
+                             alt="Waduk Jatigede"
+                             class="w-full object-cover rounded-2xl mx-auto max-w-full md:max-w-4xl" />
+                    </div>
+
+                    <p class="text-gray-800">
+                        Waduk Jatigede, yang terletak di Kabupaten Sumedang, Provinsi Jawa Barat, merupakan waduk terbesar kedua di Indonesia dengan luas genangan mencapai 3.035,34 hektar dan kapasitas tampung air sebesar 979,5 juta meter kubik. Pembangunannya telah direncanakan sejak zaman Hindia Belanda, ketika pemerintah kolonial merancanakan tiga waduk di sepanjang Sungai Cimanuk, namun rencana tersebut dibatalkan akibat penentangan masyarakat. Rencana ini kembali menghangat pada 1990-an, dengan langkah awal relokasi penduduk dari 28 desa di Kecamatan Darmaraja, Wado, Jatigede, dan Jatinunggal—proses relokasi pertama dimulai pada 1982. Desain waduk diselesaikan pada 1988, diikuti konstruksi dari 2007 hingga 2015, dan penggenangan serta peresmian dilakukan pada 31 Agustus 2015 oleh Menteri Pekerjaan Umum dan Perumahan Rakyat Basuki Hadimulyono, dengan biaya mencapai 467 juta dolar AS atau sekitar Rp 6,5 triliun.
+                    </p>
+
+                    <p class="text-gray-800">
+                        Waduk ini dibangun untuk membendung Sungai Cimanuk dan berfungsi utama sebagai sumber irigasi bagi 90.000 hektar lahan pertanian produktif di Kabupaten Cirebon, Indramayu, dan Majalengka, serta sebagai pembangkit listrik tenaga air (PLTA) dengan kapasitas 110 MW yang dikelola PT PLN. Selain itu, waduk menyediakan air baku hingga 3.500 meter kubik per detik untuk kebutuhan domestik dan industri, mengendalikan banjir di 14.000 hektar wilayah hilir, serta berperan sebagai sarana budidaya perikanan, olahraga air, dan rekreasi. Meski demikian, proyek ini menimbulkan dampak sosial kompleks, termasuk relokasi sekitar 16.000 warga, hilangnya lahan, dan ancaman terhadap situs kebudayaan. Di sisi lain, penggenangan menciptakan keindahan alam yang memukau, menjadikannya destinasi wisata yang menarik.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full h-auto bg-blue-800 grid grid-cols-1 gap-y-4 items-center justify-center text-white py-8">
+        <p class="text-sm md:text-md text-center px-6">
+            Desa Jatigede, Kecamatan Darmaraja, Kabupaten Sumedang, Jawa Barat 45373
+            <br />Jam operasional (08.00-17.00 WIB)
+        </p>
+        <img class="justify-self-center w-48 h-auto" src="src/img/Frame 11.png" alt="" />
+        <p class="text-sm md:text-md text-center px-6">
+            © 2025 Landing Page Jatigede by Cipta Ayuningsih. Semua hak dilindungi.
+        </p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
