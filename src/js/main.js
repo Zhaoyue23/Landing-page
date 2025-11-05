@@ -78,7 +78,7 @@
   // ONE-PAGE-PER-SCROLL Implementasi
   // ---------------------------
   // Config
-  const ENABLE_ONLY_DESKTOP = false; // jika true, nonaktifkan behavior ini di layar < 768px
+  const ENABLE_ONLY_DESKTOP = true; // jika true, nonaktifkan behavior ini di layar < 768px
   const WHEEL_THRESHOLD = 60; // jumlah akumulasi deltaY untuk trigger
   const TOUCH_THRESHOLD = 80; // px swiped untuk trigger
   let isAnimating = false;
