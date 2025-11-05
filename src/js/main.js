@@ -40,10 +40,12 @@
   }
 
   // IntersectionObserver
-  const sections = document.querySelectorAll('section.section');
-  let sectionList = Array.from(sections);
+  // Observe all section.section elements for visibility/animations,
+  // and use those sections as the "snap" list.
+  const allSections = document.querySelectorAll('section.section');
+  let sectionList = Array.from(allSections);
 
-  if ('IntersectionObserver' in window && sections.length) {
+  if ('IntersectionObserver' in window && allSections.length) {
     const opts = { root: null, rootMargin: '0px', threshold: 0.48 };
 
     const onChange = (entries) => {
@@ -66,10 +68,10 @@
     };
 
     const observer = new IntersectionObserver(onChange, opts);
-    sections.forEach((s) => observer.observe(s));
+    allSections.forEach((s) => observer.observe(s));
   } else {
     // mengatasi browser lama: langsung tambahkan kelas in-view
-    sections.forEach((s) => s.classList.add('in-view'));
+    allSections.forEach((s) => s.classList.add('in-view'));
     const fullText = 'Temukan Pesona Jatigede, Surga Air Biru di Jawa Barat';
     typeWriter('animated-text', fullText, 75);
   }
@@ -88,6 +90,7 @@
 
   // Utilitas fungsi
   function getActiveSectionIndex() {
+    if (!sectionList || sectionList.length === 0) return -1;
     return sectionList.findIndex(s => s.classList.contains('in-view'));
   }
 
@@ -124,6 +127,16 @@
       // determinasi arah
       const dir = accumulate > 0 ? 1 : -1;
       const active = getActiveSectionIndex();
+
+      // Jika active adalah last snap section dan mencoba scroll ke bawah,
+      // jangan intervensi sehingga user bisa scroll normal ke footer.
+      if (active === sectionList.length - 1 && dir === 1) {
+        // reset akumulasi dan izinkan default browser scroll ke footer
+        accumulate = 0;
+        lastSign = 0;
+        return;
+      }
+
       const nextIndex = active === -1 ? 0 : clampIndex(active + dir);
       // menghindari event default snap
       e.preventDefault();
@@ -150,6 +163,14 @@
     if (Math.abs(diff) > TOUCH_THRESHOLD && !isAnimating) {
       const dir = diff > 0 ? 1 : -1;
       const active = getActiveSectionIndex();
+
+      // Jika active adalah last snap section dan swipe ke atas (dir=1),
+      // jangan intervensi sehingga user bisa swipe normal ke footer/no-snap section.
+      if (active === sectionList.length - 1 && dir === 1) {
+        touchStartY = null;
+        return;
+      }
+
       const nextIndex = active === -1 ? 0 : clampIndex(active + dir);
       scrollToSection(nextIndex);
     }
@@ -174,6 +195,9 @@
     if (isAnimating) return;
     const active = getActiveSectionIndex();
     if (['ArrowDown', 'PageDown'].includes(e.key)) {
+      // Jika sudah di last snap section, biarkan browser melakukan default (ke footer/no-snap),
+      // sehingga kita tidak mencegahnya.
+      if (active === sectionList.length - 1) return;
       e.preventDefault();
       scrollToSection(clampIndex(active + 1));
     } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
@@ -197,8 +221,7 @@
 
 })();
 
-// Contact form handler: builds mailto: fallback and shows UI status.
-// This IIFE is safe to include even if the contact form is not present on the page.
+// Contact form handler
 (function() {
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
@@ -220,8 +243,8 @@
       return;
     }
 
-    // Build mailto link as a simple fallback (opens user's email client)
-    const to = 'info@jatigede.example'; // default destination; ganti jika perlu
+    // Build mailto link
+    const to = 'info@jatigede.example'; // default destination; dummy email
     const bodyLines = [
       'Nama: ' + name,
       'Email: ' + email,
