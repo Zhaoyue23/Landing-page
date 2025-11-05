@@ -1,0 +1,67 @@
+
+html { scroll-behavior: smooth; }
+    main {
+      scroll-snap-type: y mandatory;
+    }
+
+    section.section {
+      scroll-snap-align: start;
+      min-height: 100vh;
+    }
+
+    .animate-item {
+      opacity: 0;
+      transform: translateY(24px) scale(.98);
+      transition: opacity 700ms cubic-bezier(.22,.98,.32,1), transform 700ms cubic-bezier(.22,.98,.32,1);
+      will-change: opacity, transform;
+    }
+
+    section.section.in-view .animate-item {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    @media (max-width: 767px) {
+      main { scroll-padding-top: 64px; }
+    }
+
+    @layer utilities {
+      /* keyframes */
+      @keyframes floatY {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+      }
+      @keyframes driftX {
+        0% { transform: translateX(0); }
+        50% { transform: translateX(6px); }
+        100% { transform: translateX(0); }
+      }
+      @keyframes slowZoom {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.06); }
+      }
+
+      /* animasi utilitas */
+      .animate-float { animation: floatY 6s ease-in-out infinite; will-change: transform; }
+      .animate-drift { animation: driftX 8s ease-in-out infinite; will-change: transform; }
+      .animate-kenburns { animation: slowZoom 14s linear infinite alternate; will-change: transform; }
+
+      /* simple delay */
+      .anim-delay-0 { animation-delay: 0s; }
+      .anim-delay-1 { animation-delay: 0.9s; }
+      .anim-delay-2 { animation-delay: 1.6s; }
+      .anim-delay-3 { animation-delay: 2.2s; }
+
+      /* wrapper*/
+      .frame-wrap { transform-origin: center center; pointer-events: auto; }
+    }
+
+    /* Animasi lebih smooth*/
+    @media (max-width: 767px) {
+      @layer utilities {
+        .animate-float { animation: floatY 8s ease-in-out infinite; }
+        .animate-drift { animation: driftX 10s ease-in-out infinite; }
+        .animate-kenburns { animation: slowZoom 18s linear infinite alternate; }
+      }
+    }

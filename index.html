@@ -22,6 +22,7 @@
       },
     };
   </script>
+  <link rel="stylesheet" href="src/css/hero-animation.css"/>
 </head>
 
 <body class="font-sans bg-white">
@@ -40,9 +41,9 @@
       <!-- desktop links di ujung kanan -->
       <div id="nav-links" class="hidden md:flex md:items-center md:gap-x-8 font-bold text-blue-800">
         <a href="index.html" class="text-base md:text-lg text-blue-600">Beranda</a>
-        <a href="tentang.html" class="text-base md:text-lg">Tentang</a>
-        <a href="fasilitas.html" class="text-base md:text-lg">Fasilitas</a>
-        <button class="text-base md:text-lg">Kontak</button>
+        <a href="src/pages/tentang.html" class="text-base md:text-lg">Tentang</a>
+        <a href="src/pages/fasilitas.html" class="text-base md:text-lg">Fasilitas</a>
+        <a href="src/pages/kontak.html" class ="text-base md:text-lg">Kontak</a>
       </div>
 
       <!-- toggle mobile tetap di ujung kanan -->
@@ -57,9 +58,9 @@
     <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
       <div class="flex flex-col gap-3 font-semibold text-blue-800">
         <a href="index.html" class="block py-2 text-blue-600">Beranda</a>
-        <a href="tentang.html" class="block py-2">Tentang</a>
-        <a href="fasilitas.html" class="block py-2">Fasilitas</a>
-        <a href="#" class="block py-2">Kontak</a>
+        <a href="src/pages/tentang.html" class="block py-2">Tentang</a>
+        <a href="src/pages/fasilitas.html" class="block py-2">Fasilitas</a>
+        <a href="src/pages/kontak.html" class="block py-2">Kontak</a>
       </div>
     </div>
   </nav>
@@ -69,15 +70,15 @@
 
   <!-- Hero Section-->
   <main class="min-h-screen">
-    <section class="bg-blue-200 px-6 md:px-32 py-12">
-      <div class="max-w-6xl mx-auto">
+    <section class="section bg-blue-200 px-6 md:px-32 py-12 flex items-start md:items-center pt-20 md:pt-0">
+      <div class="max-w-6xl mx-auto w-full">
         <div class="w-full min-h-[70vh] grid grid-cols-1 md:grid-cols-2 items-center gap-y-8 md:gap-x-8">
           <div class="space-y-6">
-            <h1 id= "animated-text" class="text-black text-3xl md:text-5xl font-bold leading-tight min-h-[6rem]">
+            <h1 id="animated-text" class="animate-item text-black text-3xl md:text-5xl font-bold leading-tight min-h-[6rem]">
               Temukan Pesona <br class="hidden md:inline" />Jatigede, Surga <br class="hidden md:inline" />Air Biru di Jawa 
               <br class="hidden md:inline" /> Barat
             </h1>
-            <p class="text-black text-sm md:text-base text-justify">
+            <p class="animate-item text-black text-sm md:text-base text-justify">
               Nikmati keindahan waduk terbesar, petualangan air, dan ketenangan alam yang tak tertandingi. Jatigede menawarkan
               pengalaman wisata yang menyegarkan jiwa. Cocok untuk keluarga, petualang, dan pecinta fotografi.
             </p>
@@ -86,22 +87,36 @@
             <div class="hidden md:flex justify-start">
               <a href="https://www.google.com/maps/search/?api=1&query=Waduk+Jatigede"
                  target="_blank" rel="noopener noreferrer"
-                 class="bg-blue-900 w-full md:w-48 h-12 rounded-xl text-white text-lg md:text-xl font-bold hover:bg-blue-800 flex items-center justify-center">
+                 class="animate-item bg-blue-900 w-full md:w-48 h-12 rounded-xl text-white text-lg md:text-xl font-bold hover:bg-blue-800 flex items-center justify-center">
                 Lihat Destinasi
               </a>
             </div>
           </div>
 
+          <!-- HERO IMAGES: tiap gambar dibungkus frame-wrap dengan kelas animasi -->
           <div class="grid grid-cols-2 gap-3 items-center justify-center">
             <div class="pl-2 flex justify-center">
-              <img class="w-full max-w-[200px] md:max-w-[320px] h-auto object-cover rounded-lg" 
-                   src="src/img/Frame 12.png" alt=""/>
+              <!-- foreground: sedikit lebih hidup -->
+              <div class="frame-wrap animate-float anim-delay-0">
+                <img class="w-full max-w-[200px] md:max-w-[320px] h-auto object-cover rounded-lg" 
+                     src="src/img/Frame 12.png" alt=""/>
+              </div>
             </div>
             <div class="flex flex-col gap-3 items-center justify-center">
-              <img class="w-full max-w-[160px] md:max-w-[240px] h-auto object-cover rounded-lg" 
-                   src="src/img/Frame 13.png" alt=""/>
-              <img class="w-full max-w-[160px] md:max-w-[240px] h-auto object-cover rounded-lg" 
-                   src="src/img/Frame 14.png" alt=""/>
+              <div class="">
+                <!-- mid layer -->
+                <div class="frame-wrap animate-drift anim-delay-1">
+                  <img class="w-full max-w-[160px] md:max-w-[240px] h-auto object-cover rounded-lg" 
+                       src="src/img/Frame 13.png" alt=""/>
+                </div>
+              </div>
+              <div class="">
+                <!-- back layer: gentle kenburns -->
+                <div class="frame-wrap animate-kenburns anim-delay-2">
+                  <img class="w-full max-w-[160px] md:max-w-[240px] h-auto object-cover rounded-lg" 
+                       src="src/img/Frame 14.png" alt=""/>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -109,7 +124,7 @@
           <div class="md:hidden flex justify-center mt-4">
             <a href="https://www.google.com/maps/search/?api=1&query=Waduk+Jatigede"
                target="_blank" rel="noopener noreferrer"
-               class="bg-blue-900 w-full max-w-xs h-12 rounded-xl text-white text-lg font-bold hover:bg-blue-800 flex items-center justify-center">
+               class="animate-item bg-blue-900 w-full max-w-xs h-12 rounded-xl text-white text-lg font-bold hover:bg-blue-800 flex items-center justify-center">
               Lihat Destinasi
             </a>
           </div>
@@ -118,30 +133,29 @@
     </section>
 
     <!--Section Tentang-->
-    <section class="bg-blue-300 px-6 md:px-32 py-12">
+    <section class="section bg-blue-300 px-6 md:px-32 flex items-start md:items-center pt-40 md:pt-0">
       <div class="max-w-6xl mx-auto">
         <div class="w-full grid grid-cols-1 md:grid-cols-2 items-center gap-6">
           <div class="flex flex-col items-center md:items-start">
-            <img class="w-full max-w-[280px] md:max-w-md h-auto rounded-lg object-cover" src="src/img/Frame 31.png" alt=""/>
+            <img class="animate-item w-full max-w-[280px] md:max-w-md h-auto rounded-lg object-cover" src="src/img/Frame 31.png" alt=""/>
           </div>
 
           <div class="space-y-6">
-            <p class="text-black text-sm md:text-base text-justify">
-              Waduk Jatigede, waduk terbesar kedua di Indonesia, terletak di Kabupaten Sumedang, Jawa Barat. Pembangunannya
-              direncanakan sejak zaman Hindia Belanda, namun sempat tertunda. Pada 1990-an, proyek kembali dilanjutkan dengan
-              relokasi warga dari 28 desa sekitar. Konstruksi berlangsung 2007-2015 dan diresmikan pada 2015.
+            <h3 class="animate-item text-black text-2xl md:text-3xl font-bold text-center md:text-left pt-4">Tentang Waduk Jatigede</h3>
+            <p class="animate-item text-black text-sm md:text-base text-justify">
+              Waduk Jatigede, yang terletak di Kabupaten Sumedang, Provinsi Jawa Barat, merupakan waduk terbesar kedua di Indonesia dengan luas genangan mencapai 3.035,34 hektar dan kapasitas tampung air sebesar 979,5 juta meter kubik. Pembangunannya telah direncanakan sejak zaman Hindia Belanda, ketika pemerintah kolonial merancanakan tiga waduk di sepanjang Sungai Cimanuk, namun rencana tersebut dibatalkan akibat penentangan masyarakat. Rencana ini kembali menghangat pada 1990-an, dengan langkah awal relokasi penduduk dari 28 desa di Kecamatan Darmaraja, Wado, Jatigede, dan Jatinunggal—proses relokasi pertama dimulai pada 1982. Desain waduk diselesaikan pada 1988, diikuti konstruksi dari 2007 hingga 2015, dan penggenangan serta peresmian dilakukan pada 31 Agustus 2015 oleh Menteri Pekerjaan Umum dan Perumahan Rakyat Basuki Hadimulyono, dengan biaya mencapai 467 juta dolar AS atau sekitar Rp 6,5 triliun.
             </p>
 
             <!-- tombol untuk desktop/tablet -->
             <div class="hidden md:flex justify-start md:justify-end">
-              <a href="tentang.html" class="bg-blue-900 w-full md:w-48 h-12 rounded-xl text-white text-lg font-bold hover:bg-blue-800 flex items-center justify-center">
+              <a href="src/pages/tentang.html" class="animate-item bg-blue-900 w-full md:w-48 h-12 rounded-xl text-white text-lg font-bold hover:bg-blue-800 flex items-center justify-center">
                 Lihat Selengkapnya
               </a>
             </div>
               
               <!-- tombol khusus mobile -->
               <div class="md:hidden flex justify-center w-full">
-                <a href="tentang.html" class="bg-blue-900 w-full max-w-xs h-12 rounded-xl text-white text-lg font-bold hover:bg-blue-800 flex items-center justify-center">
+                <a href="src/pages/tentang.html" class="animate-item bg-blue-900 w-full max-w-xs h-12 rounded-xl text-white text-lg font-bold hover:bg-blue-800 flex items-center justify-center">
                   Lihat Selengkapnya
                 </a>
               </div>
@@ -152,38 +166,38 @@
     </section>
 
     <!--Secton Fasilitas-->
-    <section class="bg-blue-200 px-6 md:px-32 py-12">
+    <section class="section bg-blue-200 px-6 md:px-32 py-12 flex items-center">
       <div class="max-w-6xl mx-auto">
         <div class="w-full">
-          <h3 class="text-black text-2xl md:text-3xl font-bold text-center pt-4">Fasilitas Jatigede</h3>
-          <p class="text-black text-sm md:text-base italic text-center pt-2">
+          <h3 class="animate-item text-black text-2xl md:text-3xl font-bold text-center pt-4">Fasilitas Jatigede</h3>
+          <p class="animate-item text-black text-sm md:text-base italic text-center pt-2">
             Nikmati berbagai aktivitas air dan darat yang cocok untuk semua usia.
           </p>
 
           <!-- responsive grid: mobile = 3 rows x 2 cols, md+ = 2 rows x 3 cols -->
           <div class="mt-6">
             <div class="grid grid-cols-2 grid-rows-3 md:grid-cols-3 md:grid-rows-2 gap-4">
-              <div class="overflow-hidden rounded-2xl shadow-lg">
+              <div class="overflow-hidden rounded-2xl shadow-lg animate-item">
                 <img class="w-full h-40 md:h-48 object-cover transition duration-300 ease-in-out hover:scale-110" 
                      src="src/img/Frame 17.png" alt="Fasilitas 1" />
               </div>
-              <div class="overflow-hidden rounded-2xl shadow-lg">
+              <div class="overflow-hidden rounded-2xl shadow-lg animate-item">
                 <img class="w-full h-40 md:h-48 object-cover transition duration-300 ease-in-out hover:scale-110" 
                      src="src/img/Frame 21.png" alt="Fasilitas 2" />
               </div>
-              <div class="overflow-hidden rounded-2xl shadow-lg">
+              <div class="overflow-hidden rounded-2xl shadow-lg animate-item">
                 <img class="w-full h-40 md:h-48 object-cover transition duration-300 ease-in-out hover:scale-110" 
                      src="src/img/Frame 23.png" alt="Fasilitas 3" />
               </div>
-              <div class="overflow-hidden rounded-2xl shadow-lg">
+              <div class="overflow-hidden rounded-2xl shadow-lg animate-item">
                 <img class="w-full h-40 md:h-48 object-cover transition duration-300 ease-in-out hover:scale-110" 
                      src="src/img/Frame 24.png" alt="Fasilitas 4" />
               </div>
-              <div class="overflow-hidden rounded-2xl shadow-lg">
+              <div class="overflow-hidden rounded-2xl shadow-lg animate-item">
                 <img class="w-full h-40 md:h-48 object-cover transition duration-300 ease-in-out hover:scale-110" 
                      src="src/img/Frame 25.png" alt="Fasilitas 5" />
               </div>
-              <div class="overflow-hidden rounded-2xl shadow-lg">
+              <div class="overflow-hidden rounded-2xl shadow-lg animate-item">
                 <img class="w-full h-40 md:h-48 object-cover transition duration-300 ease-in-out hover:scale-110" 
                      src="src/img/Frame 28.png" alt="Fasilitas 6" />
               </div>
@@ -191,7 +205,7 @@
           </div>
 
           <div class="flex justify-center pt-6 pb-8">
-            <a href="fasilitas.html" class="bg-blue-900 w-full md:w-auto px-6 h-12 rounded-xl text-white text-lg md:text-xl font-bold hover:bg-blue-800 flex items-center justify-center">
+            <a href="src/pages/fasilitas.html" class="animate-item bg-blue-900 w-full md:w-auto px-6 h-12 rounded-xl text-white text-lg md:text-xl font-bold hover:bg-blue-800 flex items-center justify-center">
               Lihat Semua Fasilitas
             </a>
           </div>
@@ -212,7 +226,6 @@
   </footer>
 
   <!-- external JS -->
-  <script src="js/main.js"></script>
+  <script src="src/js/main.js"></script>
 </body>
 </html>
-

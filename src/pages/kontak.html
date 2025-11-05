@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasilitas Jatigede</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="../css/hero-animation.css"/>
+
+</head>
+<body class="font-sans bg-white">
+<!-- Navbar -->
+  <nav class="w-full fixed top-0 left-0 z-50 bg-white/80 backdrop-blur-sm">
+    <!-- tambahkan padding horizontal agar ada gap ke ujung -->
+    <div class="flex items-center h-16 px-4 md:px-8">
+      <!-- logo di kiri -->
+      <a href="index.html" class="text-blue-800 font-bold text-xl md:text-2xl">
+        JATIGEDE
+      </a>
+
+      <!-- spacer: dorong nav ke kanan -->
+      <div class="flex-1"></div>
+
+      <!-- desktop links di ujung kanan -->
+      <div id="nav-links" class="hidden md:flex md:items-center md:gap-x-8 font-bold text-blue-800">
+        <a href="../../index.html" class="text-base md:text-lg">Beranda</a>
+        <a href="tentang.html" class="text-base md:text-lg">Tentang</a>
+        <a href="fasilitas.html" class="text-base md:text-lg">Fasilitas</a>
+        <a href="kontak.html" class="text-base md:text-lg text-blue-600">Kontak</a>
+      </div>
+
+      <!-- toggle mobile tetap di ujung kanan -->
+      <button id="nav-toggle" class="md:hidden p-2 text-blue-800" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+      <div class="flex flex-col gap-3 font-semibold text-blue-800">
+        <a href="../../index.html" class="block py-2">Beranda</a>
+        <a href="tentang.html" class="block py-2">Tentang</a>
+        <a href="fasilitas.html" class="block py-2">Fasilitas</a>
+        <a href="kontak.html" class="block py-2 text-blue-600">Kontak</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- spacer untuk navbar fixed -->
+  <div class="h-16"></div>
+
+  <!-- MAIN: Kontak -->
+  <main class="max-w-6xl mx-auto px-6 md:px-8 py-12">
+    <section class="bg-white rounded-lg shadow-sm p-6 md:p-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Left: Form -->
+        <div>
+          <h1 class="text-2xl md:text-3xl font-bold text-blue-900 mb-3">Kontak Kami</h1>
+          <p class="text-sm text-gray-700 mb-6">
+            Silakan isi form di bawah untuk menghubungi tim pengelola Jatigede. Kami akan membalas secepatnya.
+            Jika membutuhkan respon cepat, gunakan nomor telepon atau email di sebelah kanan.
+          </p>
+
+          <form id="contact-form" class="space-y-4 bg-gray-50 p-4 rounded-lg" novalidate>
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
+              <input id="name" name="name" type="text" required
+                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+              <input id="email" name="email" type="email" required
+                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+            </div>
+
+            <div>
+              <label for="subject" class="block text-sm font-medium text-gray-700">Subjek</label>
+              <input id="subject" name="subject" type="text"
+                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700">Pesan</label>
+              <textarea id="message" name="message" rows="5" required
+                        class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <button type="submit"
+                      class="bg-blue-900 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-800">
+                Kirim Pesan
+              </button>
+              <button type="reset"
+                      class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300">
+                Reset
+              </button>
+              <p id="form-status" class="text-sm text-green-600 hidden">Pesan terkirim. Terima kasih!</p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right: Info & Map -->
+        <div>
+          <h2 class="text-lg font-semibold text-blue-800 mb-2">Informasi Kontak</h2>
+
+          <div class="space-y-4 text-sm text-gray-700">
+            <div>
+              <p class="font-medium">Alamat</p>
+              <p>Desa Jatigede, Kecamatan Darmaraja, Kabupaten Sumedang, Jawa Barat 45373</p>
+            </div>
+
+            <div>
+              <p class="font-medium">Telepon</p>
+              <p><a href="tel:+628123456789" class="text-blue-700 hover:underline">+62 812-3456-789</a></p>
+            </div>
+
+            <div>
+              <p class="font-medium">Email</p>
+              <p><a href="mailto:info@jatigede.example" class="text-blue-700 hover:underline">info@jatigede.example</a></p>
+            </div>
+
+            <div>
+              <p class="font-medium">Jam Operasional</p>
+              <p>Senin - Minggu: 08.00 - 17.00 WIB</p>
+            </div>
+
+            <div>
+              <p class="font-medium">Temukan kami</p>
+              <p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Waduk+Jatigede" target="_blank" rel="noopener noreferrer"
+                   class="text-blue-700 hover:underline">Buka di Google Maps</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <h3 class="text-sm font-medium text-gray-800 mb-2">Lokasi (Pratinjau)</h3>
+            <!-- Lightweight embedded map (uses Google Maps link fallback). Replace src with an embed URL if you have one. -->
+            <div class="w-full h-48 rounded-lg overflow-hidden border">
+              <iframe
+                title="Peta Lokasi Jatigede"
+                src="https://www.google.com/maps?q=Waduk%20Jatigede&output=embed"
+                class="w-full h-full"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <div class="mt-6 text-xs text-gray-500"> 
+            <p>Peta di atas hanya untuk pratinjau. Klik "Buka di Google Maps" untuk navigasi yang lebih akurat.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="w-full h-auto bg-blue-800 grid grid-cols-1 gap-y-4 items-center justify-center text-white py-8">
+    <p class="text-sm md:text-md text-center px-6">Hak cipta © 2025 Landing Page Jatigede by Cipta Ayuningsih.</p>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
